@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.SortedMap;
 
 /*
 Author : Quy Vu
@@ -14,8 +13,10 @@ public class StudentManagement {
         this.studentList = new ArrayList<>();
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
+    public void getStudentList() {
+        for (Student stu: studentList) {
+            System.out.println("RollNo("+stu.getRollNo()+"): "+stu.getFullName());
+        }
     }
 
     public void addStudent(Student student){
@@ -33,28 +34,47 @@ public class StudentManagement {
         System.out.println("Thêm sinh viên");
         System.out.println("Nhap rollNo sv dạng chuỗi");
         rollNo = in.next();
-        for (Student student: studentList) {
-            if(student.getRollNo().equals(rollNo)){
-                System.out.println("Sinh viên đã tồn tại.Thêm thất bại");
-            }else {
-                System.out.println("Nhap fullName sv dạng chuỗi");
-                fullName = in.next();
-                System.out.println("Nhap fullName sv dạng chuỗi");
-                address = in.next();
-                System.out.println("Nhap fullName sv dạng chuỗi");
-                email = in.next();
-                System.out.println("Nhap fullName sv dạng chuỗi");
-                DBO = in.next();
-                System.out.println("Nhap fullName sv dạng số");
-                status = in.nextInt();
-                addStudent(new Student(rollNo,fullName,address,email,DBO,status));
-                System.out.println("Thêm sinh viên thành công");
-            }
+        if(studentList.stream().allMatch(student -> !student.getRollNo().equals(rollNo))){
+                    System.out.println("Nhap fullName sv dạng chuỗi");
+                    fullName = in.next();
+                    System.out.println("Nhap address sv dạng chuỗi");
+                    address = in.next();
+                    System.out.println("Nhap email sv dạng chuỗi");
+                    email = in.next();
+                    System.out.println("Nhap ngay sinh sv dạng chuỗi");
+                    DBO = in.next();
+                    System.out.println("Nhap status sv dạng số");
+                    status = in.nextInt();
+                    Student stu = new Student(rollNo,fullName,address,email,DBO,status);
+                    studentList.add(stu);
+                    System.out.println("Thêm sinh viên thành công");
+        }else {
+            System.out.printf("Sinh viên đã tồn tại");
         }
-
 
     }
 
+    public void removeStudent(){
+        System.out.println("Xóa học sinh");
+        System.out.println("Mời bạn nhập rollNo:");
+        String rollNo = in.next();
+        if(studentList.stream().anyMatch(student -> student.getRollNo().equals(rollNo))){
+            for (Student student : studentList) {
+                if(student.getRollNo().equals(rollNo)){
+                    studentList.remove(student);
+                    System.out.printf("Xóa sinh viên thành công");
+                    break;
+            }
+        }
+        }else {
+            System.out.printf("Sinh viên đã tồn tại");
+        }
+    }
+
+    public void sortStudent(){
+        studentList.sort((stu1,stu2)->stu1.getFullName().compareTo(stu2.getFullName()));
+        getStudentList();
+    }
 
 
     public void setStudent(){
@@ -118,6 +138,38 @@ public class StudentManagement {
             }
         }else {
             System.out.println("ID bạn chọn không tồn tại");
+        }
+
+    }
+
+    public void searchStudent(){
+        System.out.println("Chọn tìm kiếm học sinh theo:");
+        System.out.println("1.RollNo");
+        System.out.println("2.Tên");
+        int selection = in.nextInt();
+        System.out.println("Nhập nội dung tìm kiếm");
+        String key = in.next();
+        switch (selection){
+            case 1:
+                if(studentList.stream().anyMatch(student -> student.getRollNo().contains(key))){
+                    for (Student student:studentList) {
+                        if(student.getRollNo().contains(key)){
+                            System.out.println("RollNo("+student.getRollNo()+") "+student.getFullName());
+                        }
+                    }
+                }
+                break;
+            case 2:
+                if(studentList.stream().anyMatch(student -> student.getFullName().contains(key))){
+                    for (Student student:studentList) {
+                        if(student.getFullName().contains(key)){
+                            System.out.println("RollNo("+student.getRollNo()+") "+student.getFullName());
+                        }
+                    }
+                }
+                break;
+            default:
+                System.out.println("Nhập sai");
         }
 
     }
