@@ -151,23 +151,20 @@ public class StudentManagement {
         String key = in.next();
         switch (selection){
             case 1:
-                if(studentList.stream().anyMatch(student -> student.getRollNo().contains(key))){
                     for (Student student:studentList) {
                         if(student.getRollNo().contains(key)){
                             System.out.println("RollNo("+student.getRollNo()+") "+student.getFullName());
                         }
                     }
-                }
                 break;
             case 2:
-                if(studentList.stream().anyMatch(student -> student.getFullName().contains(key))){
                     for (Student student:studentList) {
                         if(student.getFullName().contains(key)){
                             System.out.println("RollNo("+student.getRollNo()+") "+student.getFullName());
                         }
                     }
-                }
-                break;
+
+                    break;
             default:
                 System.out.println("Nhập sai");
         }
