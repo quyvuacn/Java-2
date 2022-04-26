@@ -3,7 +3,7 @@ import java.util.Scanner;
 /*
 Author : Quy Vu
 */
-public class Test {
+public class TestTotal {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Menu menu = new Menu();
