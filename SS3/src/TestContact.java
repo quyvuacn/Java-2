@@ -12,7 +12,9 @@ public class TestContact {
 
         contactList.addContact(contact1);
         contactList.addContact(contact2);
-        contactList.searchContact("Qu");
+
+        contactList.updateContact(contact1,contact2);
+        contactList.getListContact();
 
 
 

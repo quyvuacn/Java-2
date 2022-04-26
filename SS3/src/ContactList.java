@@ -18,7 +18,7 @@ public class ContactList {
     public void updateContact(Contact contactOld,Contact contactNew){
         for (Contact contact:listContact) {
             if(contact.equals(contactOld)){
-                contact = contactNew;
+                listContact.set(listContact.indexOf(contactOld),contactNew);
             }
         }
     }
