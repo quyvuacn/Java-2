@@ -16,7 +16,11 @@ public class ContactList {
     }
 
     public void updateContact(Contact contactOld,Contact contactNew){
-        contactOld = contactNew;
+        for (Contact contact:listContact) {
+            if(contact.equals(contactOld)){
+                contact = contactNew;
+            }
+        }
     }
 
     public void removeContact(Contact contact){
