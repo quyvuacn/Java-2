@@ -40,7 +40,6 @@ public class Menu implements Action{
     @Override
     public void addDish(){
         System.out.println("Thêm món");
-
         try {
                 System.out.println("Mời bạn nhập tên món");
                 String nameNew = in.next();
