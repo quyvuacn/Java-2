@@ -10,10 +10,13 @@ public class JdbcSelectTest {
             String user = "root";
             String password = "";
             Connection connection = DriverManager.getConnection(url,user,password);
+            System.out.println("connect successfully!\n");
+
             Statement stmt = connection.createStatement();
             String strSelect = "select title, price, qty from books";
             System.out.println("The SQL statement is: " + strSelect + "\n");
             ResultSet rset = stmt.executeQuery(strSelect);
+            System.out.println(rset);
             System.out.println("The records selected are:");
             int rowCount = 0;
             while(rset.next()) {
@@ -24,6 +27,8 @@ public class JdbcSelectTest {
                 ++rowCount;
             }
             System.out.println("Total number of records = " + rowCount);
+            connection.close();
+            System.out.println("\nClosed");
 
 
 
