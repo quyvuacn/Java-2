@@ -7,8 +7,8 @@ public class JdbcSelectTest {
     public static void main(String[] args) {
         try{
             String url = "jdbc:mysql://localhost:3306/ebookshop?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
-            String user = "root";
-            String password = "";
+            String user = "admin_ebook";
+            String password = "123456";
             Connection connection = DriverManager.getConnection(url,user,password);
             System.out.println("connect successfully!\n");
 
@@ -29,9 +29,6 @@ public class JdbcSelectTest {
             System.out.println("Total number of records = " + rowCount);
             connection.close();
             System.out.println("\nClosed");
-
-
-
         } catch (SQLException e) {
             System.out.println("Truy vấn không thành công");
             System.out.println(e.getErrorCode());
