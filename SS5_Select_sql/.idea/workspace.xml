@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d701af40-9ea7-4228-8f19-ef71139388e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../EduSS5/src/Example.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EduSS5/out/production/EduSS5/Example.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EduSS5/out/production/EduSS5/Example.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EduSS5/src/Example.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EduSS5/src/Example.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SS5_Select_sql.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SS5_Select_sql.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SS5_Select_sql/JdbcSelectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SS5_Select_sql/JdbcSelectTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JdbcSelectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JdbcSelectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SS6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SS6/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
