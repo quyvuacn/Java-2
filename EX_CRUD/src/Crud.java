@@ -9,7 +9,7 @@ public class Crud {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         try {
-           String url = "jdbc:mysql://localhost:3306/my_music?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC" ;
+           String url = "jdbc:mysql://localhost:3306/my_music" ;
            String user = "root";
            String password = "";
 
@@ -43,13 +43,20 @@ public class Crud {
             String key = in.nextLine();
             strSelect = "select * from music where name like '%"+key+"%'";
             rset = stm.executeQuery(strSelect);
-            while (rset.next()) {
-                System.out.println(
-                        rset.getString("name") + ","
-                                + rset.getString("author") + ","
-                                + rset.getString("year")
-                );
+            rsetMD = rset.getMetaData();
+            numCol = rsetMD.getColumnCount();
+            for(int i=1;i<=numCol;i++){
+                System.out.printf("%-30s", rsetMD.getColumnName (i));
             }
+            System.out.println("\n");
+            while (rset.next()) {
+                for(int i=1;i<=numCol;i++){
+                    System.out.printf("%-30s", rset.getString(i));
+                }
+                System.out.println("\n");
+
+            }
+
             /**
              * Search music ID
              */
@@ -58,12 +65,18 @@ public class Crud {
             in.nextLine();
             strSelect = "select * from music where id=" + keyNum  ;
             rset = stm.executeQuery(strSelect);
+            rsetMD = rset.getMetaData();
+            numCol = rsetMD.getColumnCount();
+            for(int i=1;i<=numCol;i++){
+                System.out.printf("%-30s", rsetMD.getColumnName (i));
+            }
+            System.out.println("\n");
             while (rset.next()) {
-                System.out.println(
-                        rset.getString("name") + ","
-                                + rset.getString("author") + ","
-                                + rset.getString("year")
-                );
+                for(int i=1;i<=numCol;i++){
+                    System.out.printf("%-30s", rset.getString(i));
+                }
+                System.out.println("\n");
+
             }
 
             /**
@@ -84,7 +97,7 @@ public class Crud {
              * Delete : id
              */
             System.out.println("Xóa bài hát có Id");
-            in.nextLine();
+
             int id = in.nextInt();
             String sqlDelete = "delete from music where id=" + id;
             countRecord = stm.executeUpdate(sqlDelete);
@@ -95,6 +108,7 @@ public class Crud {
             System.out.println("Cập nhật bài hát có Id");
             id = in.nextInt();
             System.out.println("Nhập ngày sx có dạng yyyy-mm-dd");
+            in.nextLine();
             date  = in.nextLine();
             String sqlUpdate = "Update music Set year ='"+date+"' where id ="+id;
             countRecord = stm.executeUpdate(sqlUpdate);
