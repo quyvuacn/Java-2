@@ -14,6 +14,9 @@ public class Jdbc_More {
             String password = "";
 
             conn = DriverManager.getConnection(url,user,password);
+            /**
+             * setAutoCommit :  mặc định sẽ là true. Chạy xong execute thì commit luôn
+             */
             conn.setAutoCommit(false);
 
             PreparedStatement psSelect = conn.prepareStatement("select * from music where id = ?");
@@ -50,7 +53,7 @@ public class Jdbc_More {
             conn.rollback();
 
             /**
-             * Batch Processing
+             * Batch Processing : Thực thi nhiều câu lệnh cùng lúc
              */
 
             Statement stm = conn.createStatement();
@@ -79,16 +82,19 @@ public class Jdbc_More {
             resultSet = stm.executeQuery("SELECT * FROM music");
             ResultSetMetaData resultMD = resultSet.getMetaData();
             int countRow = resultMD.getColumnCount();
-
-
+            /**
+             * getColumnName : Trả về tên cột
+             */
             for (int i=1;i<= countRow; ++i){
-                System.out.printf("%-30s", resultMD.getColumnName (i));
+                System.out.printf("%-30s", resultMD.getColumnName(i));
             }
             System.out.println();
-
+            /**
+             * getColumnClassName : Trả về kiểu dữ của cột
+             */
             for (int i=1;i<= countRow; ++i){
                 System.out.printf("%-30s",
-                        "("+resultMD.getColumnClassName (i)+")");
+                        "("+resultMD.getColumnClassName(i)+")");
             }
             System.out.println();
 
