@@ -17,6 +17,7 @@ public class Jdbc_More {
             /**
              * setAutoCommit :  mặc định sẽ là true. Chạy xong execute thì commit luôn
              */
+
             conn.setAutoCommit(false);
 
             PreparedStatement psSelect = conn.prepareStatement("select * from music where id = ?");
@@ -34,6 +35,7 @@ public class Jdbc_More {
             /**
              * PreparedStatement
              */
+
             PreparedStatement psInsert = conn.prepareStatement("INSERT INTO music(name,author,year) values(?,?,?)");
             psInsert.setString(1,"Người lạ ơi");
             psInsert.setString(2,"Karik");
@@ -50,7 +52,7 @@ public class Jdbc_More {
             PreparedStatement psDelete = conn.prepareStatement("DELETE FROM music WHERE id = ?");
             psDelete.setInt(1,2);
             psDelete.executeUpdate();
-            conn.rollback();
+            conn.commit();
 
             /**
              * Batch Processing : Thực thi nhiều câu lệnh cùng lúc

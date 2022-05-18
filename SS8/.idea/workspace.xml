@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a00ece60-8b7b-4e17-bf41-a8e457821d7e" name="Changes" comment="" />
+    <list default="true" id="a00ece60-8b7b-4e17-bf41-a8e457821d7e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../SS8_JDBC_MORE/out/production/SS8_JDBC_MORE/Jdbc_More.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SS8_JDBC_MORE/out/production/SS8_JDBC_MORE/Jdbc_More.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SS8_JDBC_MORE/src/Jdbc_More.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SS8_JDBC_MORE/src/Jdbc_More.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +41,7 @@
       <updated>1652460117986</updated>
       <workItem from="1652460119453" duration="14000" />
       <workItem from="1652460184579" duration="1019000" />
+      <workItem from="1652886153863" duration="12000" />
     </task>
     <servers />
   </component>
