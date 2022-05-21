@@ -1,4 +1,4 @@
-CREATE DATABASE students
+--  DATABASE students
 
 CREATE TABLE student(
     ID VARCHAR(10),
